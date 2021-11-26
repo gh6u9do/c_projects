@@ -20,6 +20,7 @@ int botchoosx;
 short color;          // цвет крестика
 short colorx = 0;
 short coloro =0;
+int motion = 2;  // переменная ход
 
 int massive3[3][3]{};
 
@@ -317,7 +318,7 @@ void checkwin5() {
 
 void game() {
     srand(time(0));
-    int motion = 2;  // переменная ход
+ 
     short endgame = 0; // условный флаг для конца работы игры   
      
             switch (flag) {
@@ -327,7 +328,7 @@ void game() {
                         masforplayer3();
                         //showmas();
                         if (motion % 2 == 0) {                    //ход первого игрока
-                            cout << "ход первого игрока" <<endl;
+                            cout << "ход крестика" <<endl;
                     
                             cout << "введите номер строки в которой вы хотите поставить свой сивол" << endl;
                             cin >> playery;
@@ -363,7 +364,7 @@ void game() {
 
 
                         else if (motion % 2 != 0 && gamemode==0) {                    // ход второго игрока
-                            cout << "ход второго игрока"<<endl;
+                            cout << "ход нолика"<<endl;
                     
 
                             cout << "введите номер строки в которой вы хотите поставить свой символ" << endl;
@@ -433,7 +434,7 @@ void game() {
                         system("cls");
                         masforplayer4();
                         if (motion % 2 == 0) {                                       // ход 1 игрока
-                            cout << "ход первого игрока" << endl;
+                            cout << "ход крестика" << endl;
 
 
                             cout << "введите номер строки в которой хотите поставить свой символ" << endl;
@@ -470,7 +471,7 @@ void game() {
 
                         else if (motion % 2 != 0 && gamemode == 0) {                       // ход 2 игрока
 
-                            cout << "ход второго игрока" << endl << endl;
+                            cout << "ход нолика" << endl << endl;
 
 
                             cout << "введите номер строки в которой хотите поставить свой символ" << endl;
@@ -572,7 +573,7 @@ void game() {
 
                         else if (motion % 2 != 0 && gamemode == 0) {
                     
-                            cout << "ход второго игрока" << endl;                         // 2 игрок
+                            cout << "ход нолика" << endl;                         // 2 игрок
 
                             cout << "введите номер строки в которой хотите поставить свой символ" << endl;
                             cin >> playery;
@@ -652,6 +653,9 @@ void setting(){             //функция настроек
 
     cout << "если вы хотите играть с компьютером, нажмите 1, если вы хотите играть друг с другом, нажмите 0" << endl;
     cin >> gamemode;
+
+    cout << "если вы хотите чтобы первым ходил нолик нажмите 1, если первый ходит крестик - 2"<<endl;
+    cin >> motion;
 
     switch (sizem) {
         case 3: {
